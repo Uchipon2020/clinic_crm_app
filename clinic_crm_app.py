@@ -80,6 +80,14 @@ with b2:
         index=0
     )
     if st.button("💾 保存"):
+        with open("眼科クリニックリスト実働表（東京都）sub.xlsx", "rb") as file:
+    st.download_button(
+        label="📥 最新Excelファイルをダウンロード",
+        data=file,
+        file_name="最新_眼科クリニックリスト.xlsx",
+        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    )
+
         df.at[idx, "備考"] = new_note
         df.at[idx, "ステータス"] = new_status
         df.to_excel(
@@ -89,10 +97,3 @@ with b2:
         )
         st.success("保存しました！")
 
-with open("眼科クリニックリスト実働表（東京都）sub.xlsx", "rb") as file:
-    st.download_button(
-        label="📥 最新Excelファイルをダウンロード",
-        data=file,
-        file_name="最新_眼科クリニックリスト.xlsx",
-        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-    )
