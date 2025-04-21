@@ -89,3 +89,10 @@ with b2:
         )
         st.success("保存しました！")
 
+with open("眼科クリニックリスト実働表（東京都）sub.xlsx", "rb") as file:
+    st.download_button(
+        label="📥 最新Excelファイルをダウンロード",
+        data=file,
+        file_name="最新_眼科クリニックリスト.xlsx",
+        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    )
